@@ -1,0 +1,44 @@
+<?teng frag fragment ?>
+<?teng endfrag ?>
+
+
+<?teng frag .fragment ?>
+<?teng endfrag ?>
+
+
+${promenna}
+${.promenna}
+#{hell}
+
+
+
+<?teng set $._peklo = "hell" ?>
+<?teng set $peklo = "hell" ?>
+<?teng set $peklo = "hell" + 1 ?>
+<?teng set $peklo = "hell" + #dddd ?>
+
+<?teng include "wheeee.html" ?>
+
+
+<?teng if $pages > 1 ?>
+		<div id="paging" data-dot="paging">
+			<?teng frag links ?>
+				<?teng if $URI =~ '' ?>
+					<span class="pad active${case(($_number % 2),1:' top-red',*:' bottom-red')}">${name}</span>
+				<?teng else ?>
+					<span class="pad${case(($_number % 2),1:' top-gray',*:' bottom-gray')}"><a href="/${.__search}${URI}">${name}</a></span>
+				<?teng endif ?>
+			<?teng endfrag ?>
+		</div>
+		<div class="cleaner"></div>
+	<?teng endif ?>
+
+<?teng endif?>
+
+<p class="${isnumber() ? 'foo' : 'bar'}"></p>
+<p ${isnumber() ? 'class="foo"' : 'class="bar"'}></p>
+<p <?teng if isnumber(1) ?>class="tralala"<?teng endif ?>> </p>
+<p class="<?teng if isnumber(1) ?>tralala<?teng endif ?>"> </p>
+
+<!-- <?teng if 1 ?> -->
+<!--- <?teng if 1 ?> --->
